@@ -1,0 +1,154 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+}
+
+
+
+  .navbar1{
+    background-color: #312a26;
+    height: 50px;
+  }
+  
+  .Search-form form{
+    background-color: #ffffff;
+  }
+  
+  .navbar1 .NotSearch-form .nav-link{
+    color: #ffffff;
+  }
+  .navbar1 .btn--cart  span{
+    color: #ffffff;
+  }
+  
+  .navbar2 .navbar-brand{
+    font-weight: 700;
+    font-size: 30px;
+    color: black;
+  }
+
+  .navbar2 .nav-link{
+    font-size: large;
+    font-weight: 500;
+    color: #616161;
+  }
+  
+  .navbar .active .nav-link{
+    color: #000000;
+  }
+
+  .navbar-brand-2{
+    display: none;
+  }
+
+  .navbar2 .small-device{
+    display: none;
+  }
+
+@media screen and (max-width :767px){
+  body{
+    display: flex;
+    flex-direction: column;
+  }
+  .navbar2{
+    order: 1;
+    padding-bottom: 0%;
+  }
+  .navbar1{
+    order: 2;
+    padding-top: 0%;
+  }
+  .brand{
+    order: 3;
+  }
+
+  .navbar1{
+    display: flex;
+    flex-direction: column;
+  }
+  .navbar1 .btn--cart{
+    order: 1;
+  }
+  .navbar1 .NotSearch-form{
+    order: 3;
+  }
+  .navbar1 .Search-form{
+    order: 4;
+  }
+  
+  .navbar-brand-2{
+    display: block;
+  }
+
+  .navbar2 .small-device{
+    display: block;
+  }
+
+  .navbar1 .nabvar-toggler span{
+    display: none;
+  }
+
+  .navbar1 .btn--cart{
+    display: none;
+  }
+
+  .navbar1{
+    background-color: #312a26;
+    height: auto;
+  }
+  
+  .navbar1 .separate{
+    display: none;
+  }
+
+  .navbar2 .navbar-toggler span{
+    color: #ffffff;
+  }
+
+  .navbar2 .btn--cart  span{
+    color: #ffffff;
+  }
+  
+  .navbar2 .navbar-brand{
+    display: none;
+  }
+
+  .Search-form form{
+    background-color: #ffffff;
+  }
+  
+  .navbar1 .NotSearch-form .nav-link{
+    color: #ffffff;
+  }
+  .navbar1 .btn--cart  span{
+    color: #ffffff;
+  }
+
+  .navbar2{
+    background-color: #312a26;
+  }
+
+  .navbar2 .nabar-nav{
+    margin-bottom: 0%;
+  }
+  .navbar2 .nav-link{
+    font-size: normal;
+    font-weight: normal;
+    color: #ffffff;
+  }
+
+  .navbar .active .nav-link{
+    color: #ffffff;
+  }
+
+  .brand .navbar-brand-2{
+    font-weight: 700;
+    font-size: 30px;
+    color: black;
+  }
+
+
+}
