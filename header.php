@@ -89,7 +89,7 @@
       <div class="collapse navbar-collapse" id="navbarScroll">
       <ul class="navbar-nav mt-2 navbar-nav-scroll ml-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#">HOME</a>
+            <a class="nav-link" href="index.php">HOME</a>
           </li>
           <li class="nav-item">
           <a class="nav-link" href="#">ITEM</a>

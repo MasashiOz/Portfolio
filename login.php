@@ -31,6 +31,20 @@
   <?php
         }
     }
+
+  ?>
+    <!-- Alert when password reseted -->
+    <?php
+    if(isset($_GET['resetPWD'])){
+        if($_GET['resetPWD'] == 'success'){
+
+  ?>
+        <div class="alert alert-success" role="alert">
+            RESET YOUR PASSWORD IS SUCCESS!
+        </div>
+  <?php
+        }
+    }
   ?>
 
   <form action="login_inc.php" method="POST">

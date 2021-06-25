@@ -1,5 +1,5 @@
 <?php
-    require_once "dbConnectUser.php";
+    require_once "dbConnect.php";
 
         if(isset($_POST["login"])){
           $email = $_POST["email"];

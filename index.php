@@ -40,30 +40,30 @@
   </div>
 
   <div class="Item container my-3">
-    <h5 class="my-3">ITEM</h5>
+    <h5 class="my-3">PRODUCT</h5>
     <div class="row row-cols-2 row-cols-md-4">
-      <div class="card col" style="width: 18rem;">
-        <a href="" id="item-1"><img src="https://via.placeholder.com/150" class="card-img-top" alt="..."></a>
+      <div class="card border-0 col" style="width: 18rem;">
+        <a href="detailProducts.php" id="item-1"><img src="https://via.placeholder.com/150" class="card-img-top" alt="..."></a>
         <div class="card-body">
           <p class="item-name" for="item-1">item name 【color】</p>
           <p class="item-price" for="item-1">￥price</p>
         </div>
       </div>
-      <div class="card col" style="width: 18rem;">
+      <div class="card border-0 col" style="width: 18rem;">
         <a href="" id="item-2"><img src="https://via.placeholder.com/150" class="card-img-top" alt="..."></a>
         <div class="card-body">
           <p class="item-name" for="item-2">item name 【color】</p>
           <p class="item-price" for="item-2">￥price</p>
         </div>
       </div>
-      <div class="card col" style="width: 18rem;">
+      <div class="card border-0 col" style="width: 18rem;">
         <a href="" id="item-3"><img src="https://via.placeholder.com/150" class="card-img-top" alt="..."></a>
         <div class="card-body">
           <p class="item-name" for="item-3">item name 【color】</p>
           <p class="item-price" for="item-3">￥price</p>
         </div>
       </div>
-      <div class="card col" style="width: 18rem;">
+      <div class="card border-0 col" style="width: 18rem;">
         <a href="" id="item-4"><img src="https://via.placeholder.com/150" class="card-img-top" alt="..."></a>
         <div class="card-body">
           <p class="item-name" for="item-4">item name 【color】</p>
@@ -72,28 +72,28 @@
       </div>
     </div>
     <div class="row row-cols-2 row-cols-md-4">
-      <div class="card col" style="width: 18rem;">
+      <div class="card border-0 col" style="width: 18rem;">
         <a href="" id="item-1"><img src="https://via.placeholder.com/150" class="card-img-top" alt="..."></a>
         <div class="card-body">
           <p class="item-name" for="item-1">item name 【color】</p>
           <p class="item-price" for="item-1">￥price</p>
         </div>
       </div>
-      <div class="card col" style="width: 18rem;">
+      <div class="card border-0 col" style="width: 18rem;">
         <a href="" id="item-2"><img src="https://via.placeholder.com/150" class="card-img-top" alt="..."></a>
         <div class="card-body">
           <p class="item-name" for="item-2">item name 【color】</p>
           <p class="item-price" for="item-2">￥price</p>
         </div>
       </div>
-      <div class="card col" style="width: 18rem;">
+      <div class="card border-0 col" style="width: 18rem;">
         <a href="" id="item-3"><img src="https://via.placeholder.com/150" class="card-img-top" alt="..."></a>
         <div class="card-body">
           <p class="item-name" for="item-3">item name 【color】</p>
           <p class="item-price" for="item-3">￥price</p>
         </div>
       </div>
-      <div class="card col" style="width: 18rem;">
+      <div class="card border-0 col" style="width: 18rem;">
         <a href="" id="item-4"><img src="https://via.placeholder.com/150" class="card-img-top" alt="..."></a>
         <div class="card-body">
           <p class="item-name" for="item-4">item name 【color】</p>
@@ -102,28 +102,28 @@
       </div>
     </div>
     <div class="row row-cols-2 row-cols-md-4">
-      <div class="card col" style="width: 18rem;">
+      <div class="card border-0 col" style="width: 18rem;">
         <a href="" id="item-1"><img src="https://via.placeholder.com/150" class="card-img-top" alt="..."></a>
         <div class="card-body">
           <p class="item-name" for="item-1">item name 【color】</p>
           <p class="item-price" for="item-1">￥price</p>
         </div>
       </div>
-      <div class="card col" style="width: 18rem;">
+      <div class="card border-0 col" style="width: 18rem;">
         <a href="" id="item-2"><img src="https://via.placeholder.com/150" class="card-img-top" alt="..."></a>
         <div class="card-body">
           <p class="item-name" for="item-2">item name 【color】</p>
           <p class="item-price" for="item-2">￥price</p>
         </div>
       </div>
-      <div class="card col" style="width: 18rem;">
+      <div class="card border-0 col" style="width: 18rem;">
         <a href="" id="item-3"><img src="https://via.placeholder.com/150" class="card-img-top" alt="..."></a>
         <div class="card-body">
           <p class="item-name" for="item-3">item name 【color】</p>
           <p class="item-price" for="item-3">￥price</p>
         </div>
       </div>
-      <div class="card col" style="width: 18rem;">
+      <div class="card border-0 col" style="width: 18rem;">
         <a href="" id="item-4"><img src="https://via.placeholder.com/150" class="card-img-top" alt="..."></a>
         <div class="card-body">
           <p class="item-name" for="item-4">item name 【color】</p>
@@ -139,28 +139,28 @@
   <div class="PickUp container my-3">
     <h5 class="my-3">Pick Up</h5>
     <div class="row row-cols-2 row-cols-md-4">
-      <div class="card col" style="width: 18rem;">
+      <div class="card border-0 col" style="width: 18rem;">
         <a href="" id="item-1"><img src="https://via.placeholder.com/150" class="card-img-top" alt="..."></a>
         <div class="card-body">
           <p class="item-name" for="item-1">item name 【color】</p>
           <p class="item-price" for="item-1">￥price</p>
         </div>
       </div>
-      <div class="card col" style="width: 18rem;">
+      <div class="card border-0 col" style="width: 18rem;">
         <a href="" id="item-2"><img src="https://via.placeholder.com/150" class="card-img-top" alt="..."></a>
         <div class="card-body">
           <p class="item-name" for="item-2">item name 【color】</p>
           <p class="item-price" for="item-2">￥price</p>
         </div>
       </div>
-      <div class="card col" style="width: 18rem;">
+      <div class="card border-0 col" style="width: 18rem;">
         <a href="" id="item-3"><img src="https://via.placeholder.com/150" class="card-img-top" alt="..."></a>
         <div class="card-body">
           <p class="item-name" for="item-3">item name 【color】</p>
           <p class="item-price" for="item-3">￥price</p>
         </div>
       </div>
-      <div class="card col" style="width: 18rem;">
+      <div class="card border-0 col" style="width: 18rem;">
         <a href="" id="item-4"><img src="https://via.placeholder.com/150" class="card-img-top" alt="..."></a>
         <div class="card-body">
           <p class="item-name" for="item-4">item name 【color】</p>

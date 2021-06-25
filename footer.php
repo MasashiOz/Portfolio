@@ -68,7 +68,7 @@
   </div>
 
   <div class="social-widget text-center my-4">
-        <p>&copy; 2021, Company, Powerd by Shopify</p>
+        <p>Copyright &copy; 2021, Company, Powerd by Shopify</p>
         <img src="assets/images/Pay-method.PNG" alt="Pay-method">
   </div>
 </div>

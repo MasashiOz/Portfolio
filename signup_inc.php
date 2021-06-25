@@ -1,5 +1,5 @@
 <?php
-  require_once "dbConnectUser.php"
+  require_once "dbConnect.php"
 ?>
 
 
@@ -26,8 +26,8 @@
           } else {
               header("location: signup.php?signup=fail");
           }             
-              mysqli_close($conn);
-            }
+          mysqli_close($conn);
+      }
   } else {
       header("location: signup.php");
   }
