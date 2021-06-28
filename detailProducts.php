@@ -1,56 +1,133 @@
 <?php
+    require_once "dbConnect.php";
     include_once "header.php";
 ?>
-
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+<?php
+    if(isset($_GET['Apnum'])){
+      $Pid = $_GET['Pid'];
+      $size = $_GET['size'];
+      $quantity = $_GET['quantity'];
+
+      // session_start();
+
+      $_SESSION["Pro"][$Pid]=[
+        'size' => $size,
+        'quantity' => $quantity
+      ];
+      // var_dump($_SESSION["Pro"]);
+
+      header("location: cart.php");
+    }
+
+
+    if(isset($_GET['pnum'])){
+      $id = $_GET['pnum'];
+
+      $sql = "SELECT * FROM products WHERE id=$id";
+      $result = mysqli_query($conn, $sql);
+
+      if (mysqli_num_rows($result) > 0){
+        $row = mysqli_fetch_assoc($result);
+        $category = $row['Category'];
+        $productname = $row['ProductName'];
+        $price = $row['Price'];
+        $img1 = $row['Img1'];
+        $img2 = $row['Img2'];
+        $img3 = $row['Img3'];
+        $stock = $row['Stock'];
+
+
+?>
 
 <div class="detail-Products container mt-4 contents">
   <a href="index.php">HOME</a>
   <span> > </span>
-  <span>item name 【color】</span>
+  <span><?php echo $row["ProductName"]; ?></span>
 
   <div class="row row-cols-1 row-cols-md-2">
     <div class="Product-image col">
       <div class="main-img js-main-img">
-        <img class="w-75 d-block mx-auto my-3" style="height: auto;" src="https://via.placeholder.com/150?text=Photo+1"/>
+      <img width='150px' src='assets/images/<?php echo $row["Img1"];?>' class='w-100' alt='Product Image' style='height: auto;'>
       </div>
       <ul class="sub-img js-sub-img" style="list-style-type: none;">
         <div class="row my-1">
           <li class="col-4">
-            <img class="w-100" style="height: auto;" src="https://via.placeholder.com/150?text=Photo+1"/>
+          <img width='150px' src='assets/images/<?php echo $row["Img1"];?>' class='w-100' alt='Product Image1' style='height: auto;'>
           </li>
           <li class="col-4">
-            <img class="w-100" style="height: auto;" src="https://via.placeholder.com/150?text=Photo+2"/>
+          <img width='150px' src='assets/images/<?php echo $row["Img2"];?>' class='w-100' alt='Product Image2' style='height: auto;'>
           </li>
+          <?php
+            if($row["Img3"] != ""){
+          ?>
           <li class="col-4">
-            <img class="w-100" style="height: auto;" src="https://via.placeholder.com/150?text=Photo+3"/>
+          <img width='150px' src='assets/images/<?php echo $row["Img3"];?>' class='w-100' alt='Product Image3' style='height: auto;'>
           </li>
+          <?php
+            }
+          ?>
         </div>
       </ul>
     </div>
 
     <div class="Product-form col">
-      <h3>item name 【color】</h3>
-      <h4>￥1000</h4>
+      <h3><?php echo $row["ProductName"]; ?></h3>
+      <h4>￥<?php echo $row["Price"]; ?></h4>
 
       <form action="" method="GET">
-        <input type="hidden" name="productImage" val="text=Photo+1">
-        <input type="hidden" name="product" value="item name 【color】">
-        <input type="hidden" name="price" value="1000">
-        <label for="size">Size</label>
-        <select class="form-control" name="size" id="size">
-          <option value="XL">XL</option>
-          <option value="L">L</option>
-          <option value="M">M</option>
-          <option value="S">S</option>
-        </select>
+        <?php
+          if($category == "Tops"){
+        ?>    
+            <label for="size">Size</label>
+            <select class="form-control" name="size" id="size">
+              <option value="XL">XL</option>
+              <option value="L">L</option>
+              <option value="M">M</option>
+              <option value="S">S</option>
+            </select>
+        <?php
+          } else if($category == "Shoes"){
+        ?>
+            <label for="size">Size</label>
+            <select class="form-control" name="size" id="size">
+              <option value="28.0 cm">28.0 cm</option>
+              <option value="27.0 cm">27.0 cm</option>
+              <option value="26.0 cm">26.0 cm</option>
+              <option value="25.0 cm">25.0 cm</option>
+            </select>
+        <?php
+          } else {
+        ?>
+            <input type="hidden" name="size" value="">
+        <?php   
+          }
+        ?>
 
         <label for="quantity">Quantity</label>
-        <input type="number" class="form-control" name="quantity" id="quantity" value=1>
-
-        <button class="btn btn-lg btn-outline-dark my-2 d-block" name="add" formaction="cart.php">Add to cart</button>
+        <select class="form-control" name="quantity" id="quantity">
+        <?php
+          for ($count = 1; $count <= $stock; $count++){
+        ?>
+          <option value="<?php echo $count; ?>"><?php echo $count; ?></option>
+        <?php
+          }
+        ?>
+        </select>
+        <?php
+          if($stock == 0){
+        ?>
+            <p>Out of stock</p>
+        <?php
+          } else{
+        ?>
+        <input type="hidden" name="Pid" value="<?php echo $row["id"]; ?>">
+        <button class="btn btn-lg btn-outline-dark my-2 d-block" name="Apnum" formaction="detailProducts.php">Add to cart</button>
         <button class="btn btn-lg btn-dark my-2 d-block" name="buy" formaction="">Buy Now!!</button>
-
+        <?php
+          }
+        ?>
       </form>
 
       <div class="Product-detail">
@@ -60,14 +137,13 @@
         </div>
         <div class="material">
           <h6>【Material】</h6>
-          <p>Cotton 100%</p>
+          <p>Lorem ipsum dolor sit.</p>
         </div>
-        <div class="size-description">
-          <h6>【Size Description】</h6>
-          <p>Size XL: Sleeve length 20.5cm / Shoulder width 52cm / Body width 57cm / Length 77cm</p>
-          <p>Size L: Sleeve length 19cm / Shoulder width 51cm / Body width 56cm / Length 72cm</p>
-          <p>Size M: Sleeve length 17.5cm / Shoulder width 49cm / Body width 55cm / Length 67cm</p>
-          <p>Size S: Sleeve length 16.5cm / Shoulder width 44.5cm / Body width 48.5cm / Length 62cm</p>
+        <div class="detail">
+          <h6>【Product Detail】</h6>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, dignissimos?</p>
+          <br>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni quia itaque eligendi, nesciunt rerum harum! Ea vero labore architecto obcaecati recusandae eum! Omnis voluptatem culpa aperiam iure excepturi illum fugiat nostrum recusandae ea id cumque possimus itaque blanditiis doloremque perferendis voluptate quisquam, adipisci quasi ipsam officia alias expedita, distinctio iusto.</p>
         </div>
       </div>
 
@@ -80,48 +156,43 @@
   <div class="recommend">
     <h5 class="my-3">Recommended for you</h5>
     <div class="row row-cols-2 row-cols-md-4">
-      <div class="card border-0 col" style="width: 18rem;">
-          <a href="detailProducts.php" id="item-1"><img src="https://via.placeholder.com/150" class="card-img-top" alt="..."></a>
-          <div class="card-body">
-            <p class="item-name" for="item-1">item name 【color】</p>
-            <p class="item-price" for="item-1">￥price</p>
+      <?php
+        $sql = "SELECT * FROM products WHERE Category='$category' ORDER BY rand() LIMIT 4";
+        $result = mysqli_query($conn, $sql);
+      
+        if (mysqli_num_rows($result) > 0){
+
+          while ($row = mysqli_fetch_assoc($result)){
+      ?>
+            <div class="card border-0 col" style="width: 18rem;">
+            <a href="detailProducts.php?pnum=<?php echo $row["id"]; ?>"><?php echo "<img width='150px' src='assets/images/" .$row["Img1"]."' class='card-img-top' alt='Product Image'>"; ?></a>
+            <div class="card-body">
+              <p class="item-name"><?php echo $row["ProductName"]; ?></p>
+              <p class="item-price"><?php echo $row["Price"]; ?></p>
+            </div>
           </div>
-        </div>
-        <div class="card border-0 col" style="width: 18rem;">
-          <a href="" id="item-2"><img src="https://via.placeholder.com/150" class="card-img-top" alt="..."></a>
-          <div class="card-body">
-            <p class="item-name" for="item-2">item name 【color】</p>
-            <p class="item-price" for="item-2">￥price</p>
-          </div>
-        </div>
-        <div class="card border-0 col" style="width: 18rem;">
-          <a href="" id="item-3"><img src="https://via.placeholder.com/150" class="card-img-top" alt="..."></a>
-          <div class="card-body">
-            <p class="item-name" for="item-3">item name 【color】</p>
-            <p class="item-price" for="item-3">￥price</p>
-          </div>
-        </div>
-        <div class="card border-0 col" style="width: 18rem;">
-          <a href="" id="item-4"><img src="https://via.placeholder.com/150" class="card-img-top" alt="..."></a>
-          <div class="card-body">
-            <p class="item-name" for="item-4">item name 【color】</p>
-            <p class="item-price" for="item-4">￥price</p>
-          </div>
-        </div>
+    <?php
+          }
+        }
+      }
+    }
+    mysqli_close($conn);
+    ?>
     </div>
   </div>
 
 </div>
 
+
 <script>
   $(function () {
     $(".js-sub-img img").on("click", function () {
       img = $(this).attr("src");
-        $(".js-main-img img").fadeOut(10, function () {
+        $(".js-main-img img").fadeOut(20, function () {
           $(".js-main-img img")
             .attr("src", img)
             .on("load", function () {
-              $(this).fadeIn(10);
+              $(this).fadeIn(20);
             });
         });
     });
