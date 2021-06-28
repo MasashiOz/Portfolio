@@ -4,7 +4,7 @@
 
 
 <div class="O_login container my-4">
-  <h3>Are you the owner?</h3>
+  <h3>Are you the owner of this site?</h3>
   <form action="O_login_inc.php" method="POST">
     <input type="text" name="OwnerName" class="form-control my-2" placeholdeer="Owner Full Name" require>
     <input type="password" name="OwnerPassword" class="form-control my-2" placeholder="Owner Password" required>
@@ -13,7 +13,7 @@
   </form>
 </div>
 
-<div class="O_signup container my-4">
+<!-- <div class="O_signup container my-4">
 <h3>Make a New owner!!</h3>
   <form action="O_signup_inc.php" method="POST">
     <input type="text" name="OwnerName" class="form-control my-2" placeholdeer="Owner Full Name" require>
@@ -21,7 +21,7 @@
 
     <button type="submit" name="O_signup" class="btn btn-dark my-2">Create</button>
   </form>
-</div>
+</div> -->
 
 </body>
 </html>

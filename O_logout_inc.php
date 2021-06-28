@@ -1,6 +1,6 @@
 <?php
 session_start();
-session_unset();
-session_destroy();
+unset($_SESSION["Oid"]);
+unset($_SESSION["OwnerName"]);
 header("location: owner.php");
 ?>

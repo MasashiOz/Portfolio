@@ -19,7 +19,7 @@
                   header("location: owner.php?login=fail");
                 } else {
                   session_start();
-                  $_SESSION["id"] = $row['id'];
+                  $_SESSION["Oid"] = $row['id'];
                   $_SESSION["OwnerName"] = $row['OwnerName'];
                   header("location: PControl.php");
                 }

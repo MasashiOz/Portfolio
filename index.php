@@ -1,4 +1,5 @@
 <?php
+    require_once "dbConnect.php";
     include_once "header.php";
 ?>
 
@@ -42,96 +43,34 @@
   <div class="Item container my-3">
     <h5 class="my-3">PRODUCT</h5>
     <div class="row row-cols-2 row-cols-md-4">
-      <div class="card border-0 col" style="width: 18rem;">
-        <a href="detailProducts.php" id="item-1"><img src="https://via.placeholder.com/150" class="card-img-top" alt="..."></a>
-        <div class="card-body">
-          <p class="item-name" for="item-1">item name 【color】</p>
-          <p class="item-price" for="item-1">￥price</p>
-        </div>
-      </div>
-      <div class="card border-0 col" style="width: 18rem;">
-        <a href="" id="item-2"><img src="https://via.placeholder.com/150" class="card-img-top" alt="..."></a>
-        <div class="card-body">
-          <p class="item-name" for="item-2">item name 【color】</p>
-          <p class="item-price" for="item-2">￥price</p>
-        </div>
-      </div>
-      <div class="card border-0 col" style="width: 18rem;">
-        <a href="" id="item-3"><img src="https://via.placeholder.com/150" class="card-img-top" alt="..."></a>
-        <div class="card-body">
-          <p class="item-name" for="item-3">item name 【color】</p>
-          <p class="item-price" for="item-3">￥price</p>
-        </div>
-      </div>
-      <div class="card border-0 col" style="width: 18rem;">
-        <a href="" id="item-4"><img src="https://via.placeholder.com/150" class="card-img-top" alt="..."></a>
-        <div class="card-body">
-          <p class="item-name" for="item-4">item name 【color】</p>
-          <p class="item-price" for="item-4">￥price</p>
-        </div>
-      </div>
-    </div>
-    <div class="row row-cols-2 row-cols-md-4">
-      <div class="card border-0 col" style="width: 18rem;">
-        <a href="" id="item-1"><img src="https://via.placeholder.com/150" class="card-img-top" alt="..."></a>
-        <div class="card-body">
-          <p class="item-name" for="item-1">item name 【color】</p>
-          <p class="item-price" for="item-1">￥price</p>
-        </div>
-      </div>
-      <div class="card border-0 col" style="width: 18rem;">
-        <a href="" id="item-2"><img src="https://via.placeholder.com/150" class="card-img-top" alt="..."></a>
-        <div class="card-body">
-          <p class="item-name" for="item-2">item name 【color】</p>
-          <p class="item-price" for="item-2">￥price</p>
-        </div>
-      </div>
-      <div class="card border-0 col" style="width: 18rem;">
-        <a href="" id="item-3"><img src="https://via.placeholder.com/150" class="card-img-top" alt="..."></a>
-        <div class="card-body">
-          <p class="item-name" for="item-3">item name 【color】</p>
-          <p class="item-price" for="item-3">￥price</p>
-        </div>
-      </div>
-      <div class="card border-0 col" style="width: 18rem;">
-        <a href="" id="item-4"><img src="https://via.placeholder.com/150" class="card-img-top" alt="..."></a>
-        <div class="card-body">
-          <p class="item-name" for="item-4">item name 【color】</p>
-          <p class="item-price" for="item-4">￥price</p>
-        </div>
-      </div>
-    </div>
-    <div class="row row-cols-2 row-cols-md-4">
-      <div class="card border-0 col" style="width: 18rem;">
-        <a href="" id="item-1"><img src="https://via.placeholder.com/150" class="card-img-top" alt="..."></a>
-        <div class="card-body">
-          <p class="item-name" for="item-1">item name 【color】</p>
-          <p class="item-price" for="item-1">￥price</p>
-        </div>
-      </div>
-      <div class="card border-0 col" style="width: 18rem;">
-        <a href="" id="item-2"><img src="https://via.placeholder.com/150" class="card-img-top" alt="..."></a>
-        <div class="card-body">
-          <p class="item-name" for="item-2">item name 【color】</p>
-          <p class="item-price" for="item-2">￥price</p>
-        </div>
-      </div>
-      <div class="card border-0 col" style="width: 18rem;">
-        <a href="" id="item-3"><img src="https://via.placeholder.com/150" class="card-img-top" alt="..."></a>
-        <div class="card-body">
-          <p class="item-name" for="item-3">item name 【color】</p>
-          <p class="item-price" for="item-3">￥price</p>
-        </div>
-      </div>
-      <div class="card border-0 col" style="width: 18rem;">
-        <a href="" id="item-4"><img src="https://via.placeholder.com/150" class="card-img-top" alt="..."></a>
-        <div class="card-body">
-          <p class="item-name" for="item-4">item name 【color】</p>
-          <p class="item-price" for="item-4">￥price</p>
-        </div>
-      </div>
-    </div>
+      <?php
+        $sql = "SELECT * FROM products ORDER BY Price DESC LIMIT 12";
+        $result = mysqli_query($conn, $sql);
+      
+        if (mysqli_num_rows($result) > 0){
 
+          while ($row = mysqli_fetch_assoc($result)){
+      ?>
+            <div class="card border-0 col" style="width: 18rem;">
+            <a href="detailProducts.php?pnum=<?php echo $row["id"]; ?>"><?php echo "<img width='150px' src='assets/images/" .$row["Img1"]."' class='card-img-top' alt='Product Image'>"; ?></a>
+            <div class="card-body">
+              <p class="item-name"><?php echo $row["ProductName"]; ?></p>
+              <p class="item-price">￥<?php echo $row["Price"]; ?></p>
+              <?php
+                if($row["Stock"] == 0){
+              ?>
+                  <p>Out of stock</p>
+              <?php
+                }
+              ?>
+            </div>
+          </div>
+      <?php
+          }
+        }
+      ?>
+    </div>
+    
     <a href="">See more products</a>
     
   </div>
@@ -139,49 +78,41 @@
   <div class="PickUp container my-3">
     <h5 class="my-3">Pick Up</h5>
     <div class="row row-cols-2 row-cols-md-4">
-      <div class="card border-0 col" style="width: 18rem;">
-        <a href="" id="item-1"><img src="https://via.placeholder.com/150" class="card-img-top" alt="..."></a>
-        <div class="card-body">
-          <p class="item-name" for="item-1">item name 【color】</p>
-          <p class="item-price" for="item-1">￥price</p>
-        </div>
-      </div>
-      <div class="card border-0 col" style="width: 18rem;">
-        <a href="" id="item-2"><img src="https://via.placeholder.com/150" class="card-img-top" alt="..."></a>
-        <div class="card-body">
-          <p class="item-name" for="item-2">item name 【color】</p>
-          <p class="item-price" for="item-2">￥price</p>
-        </div>
-      </div>
-      <div class="card border-0 col" style="width: 18rem;">
-        <a href="" id="item-3"><img src="https://via.placeholder.com/150" class="card-img-top" alt="..."></a>
-        <div class="card-body">
-          <p class="item-name" for="item-3">item name 【color】</p>
-          <p class="item-price" for="item-3">￥price</p>
-        </div>
-      </div>
-      <div class="card border-0 col" style="width: 18rem;">
-        <a href="" id="item-4"><img src="https://via.placeholder.com/150" class="card-img-top" alt="..."></a>
-        <div class="card-body">
-          <p class="item-name" for="item-4">item name 【color】</p>
-          <p class="item-price" for="item-4">￥price</p>
-        </div>
-      </div>
+      <?php
+        $sql = "SELECT * FROM products ORDER BY Stock LIMIT 4";
+        $result = mysqli_query($conn, $sql);
+      
+        if (mysqli_num_rows($result) > 0){
+
+          while ($row = mysqli_fetch_assoc($result)){
+      ?>
+            <div class="card border-0 col" style="width: 18rem;">
+            <a href="detailProducts.php?pnum=<?php echo $row["id"]; ?>"><?php echo "<img width='150px' src='assets/images/" .$row["Img1"]."' class='card-img-top' alt='Product Image'>"; ?></a>
+            <div class="card-body">
+              <p class="item-name"><?php echo $row["ProductName"]; ?></p>
+              <p class="item-price">￥<?php echo $row["Price"]; ?></p>
+              <?php
+                if($row["Stock"] == 0){
+              ?>
+                  <p>Out of stock</p>
+              <?php
+                }
+              ?>
+            </div>
+          </div>
+      <?php
+          }
+        }
+        mysqli_close($conn);
+      ?>
     </div>
   </div>
 
   <div class="Concept-Movie container my-3">
     <h5 class="my-3">Concept Movie</h5>
-    <iframe width="560" height="315"
-    src="https://www.youtube.com/embed/vdxoDyNAoH0
-    ?loop=1
-    &playlist=vdxoDyNAoH0
-    &autoplay=1
-    &mute=1
-    &rel=0
-    &modestbranding=1"
-    frameborder="0" allowfullscreen>
-    </iframe>
+    <div class="movie-wrap">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/pW3zuPNDh-Q?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
   </div>
 
 
@@ -195,6 +126,21 @@
 
 
 <style>
+  .movie-wrap {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+  }
+
+  .movie-wrap iframe {
+      position: absolute;
+      top: 5%;
+      left: 12.5%;
+      width: 75%;
+      height: 75%;
+  }
+
   @media screen and (max-width :767px){
     body{
       display: flex;
@@ -219,7 +165,6 @@
       width: 20%;
 
     }
-
 
   }
 </style>

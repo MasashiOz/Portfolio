@@ -19,7 +19,7 @@
                   header("location: login.php?login=fail");
                 } else {
                   session_start();
-                  $_SESSION["id"] = $row['id'];
+                  $_SESSION["Uid"] = $row['id'];
                   $_SESSION["First_Name"] = $row['First_Name'];
                   $_SESSION["Last_Name"] = $row['Last_Name'];
                   header("location: index.php");

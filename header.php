@@ -38,7 +38,7 @@
           
           ?>
           <li class="nav-item">
-              <a class="nav-link" href="#"><?php echo "Welcome $user_FirstName " . "$user_LastName" ?></a>
+              <a class="nav-link" href="owner.php"><?php echo "Welcome $user_FirstName " . "$user_LastName" ?></a>
           </li>
           <li class="nav-item">
               <a class="nav-link" href="logout_inc.php">LOG OUT</a>
@@ -61,7 +61,7 @@
         </ul>
       </div>
     
-      <a class="btn btn--cart fas ml-auto my-2" href="">
+      <a class="btn btn--cart fas ml-auto my-2" href="cart.php">
         <span class="fas fa-shopping-cart" aria-hidden="true"></span>
         <span>Cart</span>
       </a>
@@ -79,7 +79,7 @@
           </button>
         </div>
         <div class="cart d-inline-flex flex-fill justify-content-end">
-           <a class="btn btn--cart fas my-2" href="">
+           <a class="btn btn--cart fas my-2" href="cart.php">
             <span class="fas fa-shopping-cart" aria-hidden="true"></span>
             <span>Cart</span>
         </a>

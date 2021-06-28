@@ -13,7 +13,7 @@
 </head>
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Company</a>
+    <a class="navbar-brand" href="index.php">Company</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -25,13 +25,13 @@
         $owner_Name = $_SESSION["OwnerName"];
       ?>
         <li class="nav-item active">
-          <a class="nav-link" href="#">Owners</a>
+          <a class="nav-link" href="PControl.php">Products</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">users</a>
+          <a class="nav-link" href="OControl.php">Owners</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Products</a>
+          <a class="nav-link" href="UControl.php">users</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#"><?php echo "Welcome $owner_Name "?></a>
@@ -43,13 +43,13 @@
       } else {
       ?>
         <li class="nav-item active">
+          <a class="nav-link disabled" href="#">Products</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link disabled" href="#">Owners</a>
         </li>
         <li class="nav-item">
           <a class="nav-link disabled" href="#">users</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#">Products</a>
         </li>
       <?php
       }
